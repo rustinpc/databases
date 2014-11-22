@@ -13,16 +13,35 @@ module.exports = {
           console.log('query error')
           throw err;
         } else {
-          console.log( "data",rows );
+          console.log( "data", rows );
         }
       });
+      db.connection.end(function(err){
+        // Do something after the connection is gracefully terminated.
+        console.log('connection closed');
+      });
     }, // a function which produces all the messages
-    post: function () {} // a function which can be used to insert a message into the database
+    post: function () {
+      db.connection.connect();
+
+    } // a function which can be used to insert a message into the database
   },
 
   users: {
     // Ditto as above.
-    get: function () {},
+    get: function () {
+      db.connection.connect();
+      db.connection.query('SELECT * FROM users', function(err, rows) {
+        if (err) {
+          throw err;
+        } else {
+          console.log('data', rows);
+        }
+      });
+      db.connection.end( function(err) {
+        console.log('connection closed');
+      });
+    },
     post: function () {}
   }
 };
