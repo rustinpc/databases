@@ -8,19 +8,5 @@ for (var route in controllers) {
     .post(controllers[route].post);
 }
 
-// router.route('').get(function(req, res){
-//   console.log('in pipe router');
-//   // fs.readFile('./client/index.html', function(err, data){
-//   //   if (err) throw err;
-//   //   var parsedData = fs.createReadStream(data);
-//   //   console.log(parsedData);
-//   //   res.writeHead(201);
-//   //   parsedData.pipe(res);
-//   // });
-//   var read = fs.createReadStream('../client/index.html');
-//   res.writeHead(201);
-//   read.pipe(res);
-// });
-
 module.exports = router;
 

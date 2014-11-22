@@ -4,7 +4,7 @@ USE chat;
 
 CREATE TABLE messages (
   /* Describe your table here.*/
-  ID int(11) NOT NULL, user_id VARCHAR(49), time TIMESTAMP(6), message VARCHAR(255), room_id VARCHAR(49), PRIMARY KEY (ID)
+  objectId int(11) NOT NULL, username VARCHAR(49), time TIMESTAMP(6), message VARCHAR(255), roomname VARCHAR(49), PRIMARY KEY (objectId)
 );
 
 /* Create other tables and define schemas for them here! */

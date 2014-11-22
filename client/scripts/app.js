@@ -63,7 +63,7 @@ $(function() {
         // data: {},
         data: { order: '-createdAt'},
         success: function(data) {
-          console.log('chatterbox: Messages fetched');
+          console.log('chatterbox: Messages fetched ', data);
 
           // Don't bother if we have nothing to work with
           if (!data.results || !data.results.length) { return; }
@@ -96,7 +96,6 @@ $(function() {
     },
     populateMessages: function(results, animate) {
       // Clear existing messages
-
       app.clearMessages();
       app.stopSpinner();
       if (Array.isArray(results)) {
@@ -143,6 +142,7 @@ $(function() {
       app.$roomSelect.append($option);
     },
     addMessage: function(data) {
+
       if (!data.roomname)
         data.roomname = 'lobby';
 
@@ -161,7 +161,7 @@ $(function() {
           $username.addClass('friend');
 
         var $message = $('<br><span/>');
-        $message.text(data.text).appendTo($chat);
+        $message.text(data.message).appendTo($chat);
 
         // Add the message to the UI
         app.$chats.append($chat);

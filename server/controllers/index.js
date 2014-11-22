@@ -6,16 +6,11 @@ var bluebird = require('bluebird');
 module.exports = {
   messages: {
     get: function (req, res) {
-      models.messages.get();
+      models.messages.get(res);
     }, // a function which handles a get request for all messages
     post: function (req, res) {
-      req.on('data', function(chunk) {
-        data += chunk;
-      });
-
-      req.on('end', function() {
-        console.log(data);
-      });
+      models.messages.post(req.body);
+      res.status(201).end();
     } // a function which handles posting a message to the database
   },
 
@@ -25,13 +20,7 @@ module.exports = {
       models.users.get();
     },
     post: function (req, res) {
-      req.on('data', function(chunk) {
-        data += chunk;
-      });
-
-      req.on('end', function() {
-        console.log(data);
-      });
+      var postObject = req.body;
     }
   }
 };

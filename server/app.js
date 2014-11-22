@@ -19,7 +19,8 @@ app.set("port", 3000);
 app.use(morgan('dev'));
 app.use(parser.json());
 
-// app.use('/', router);
+// Start sql server connection
+db.connection;
 
 // Set up our routes
 app.use("/classes", router);
