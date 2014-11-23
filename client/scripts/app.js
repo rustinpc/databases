@@ -63,7 +63,7 @@ $(function() {
         // data: {},
         data: { order: '-createdAt'},
         success: function(data) {
-          console.log('chatterbox: Messages fetched ', data);
+          console.log('chatterbox: Messages fetched ');
 
           // Don't bother if we have nothing to work with
           if (!data.results || !data.results.length) { return; }
